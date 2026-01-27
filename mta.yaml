@@ -1,0 +1,20 @@
+ID: sap-clean-core-extension
+_schema-version: '3.2'
+version: 1.0.0
+
+modules:
+  - name: risk-srv
+    type: nodejs
+    path: srv
+    requires:
+      - name: risk-db
+      - name: xsuaa
+
+resources:
+  - name: risk-db
+    type: com.sap.xs.hdi-container
+
+  - name: xsuaa
+    type: com.sap.xs.uaa
+    parameters:
+      path: security/xs-security.json
