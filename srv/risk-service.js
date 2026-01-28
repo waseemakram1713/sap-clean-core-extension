@@ -27,6 +27,11 @@ module.exports = cds.service.impl(async function () {
 
       // Log technical details (never expose)
       console.error('S/4 call failed', error.message);
+      // --- ADD STEP 4 LOGIC HERE ---
+      // Check if S/4 explicitly said "Not Found"
+      if (error.response?.status === 404) {
+        return req.error(404, `Sales Order ${salesOrderId} does not exist in the S/4HANA system.`);
+      }
 
       return req.error(
         502,
