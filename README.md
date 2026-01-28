@@ -31,6 +31,17 @@ Integration decisions:
 
 This architecture ensures loose coupling between systems and allows independent scaling, deployment, and evolution of the extension.
 
+## Authorization Model
+
+Authorization is enforced using XSUAA and CAP security features.
+
+- XSUAA defines scopes and role templates
+- CAP service entities are protected using @requires annotations
+- Runtime role checks are applied for business-critical operations
+
+This layered approach ensures that both service access and business logic are properly secured.
+
+
 ## S/4HANA Integration Without Live System
 
 At development time, a live S/4HANA system is not required.
