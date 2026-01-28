@@ -137,3 +137,9 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# --- SAP CAP Specifics ---
+_out/
+gen/
+db.sqlite
+default-env.json

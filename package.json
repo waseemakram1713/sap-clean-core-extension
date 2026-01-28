@@ -1,18 +1,33 @@
 {
   "dependencies": {
-    "express": "^5.2.1"
-  }
-,
-"cds": {
-  "requires": {
-    "db": "sqlite",
-    "API_SALES_ORDER_SRV": {
-      "kind": "odata-v2",
-      "model": "srv/external/API_SALES_ORDER_SRV",
-      "credentials": {
-        "destination": "S4HANA_SALES_API"
+    "@sap-cloud-sdk/connectivity": "^4.3.1",
+    "@sap-cloud-sdk/http-client": "^4.3.1",
+    "@sap/cds": "^8.9.8",
+    "express": "^4.22.1"
+  },
+  "cds": {
+    "requires": {
+      "db": "sqlite",
+      "auth": {
+        "kind": "mocked",
+        "users": {
+          "alice": {
+            "roles": [
+              "RiskViewer"
+            ]
+          },
+          "bob": {
+            "roles": []
+          }
+        }
+      },
+      "API_SALES_ORDER_SRV": {
+        "kind": "odata-v2",
+        "model": "srv/external/API_SALES_ORDER_SRV",
+        "credentials": {
+          "destination": "S4HANA_SALES_API"
+        }
       }
     }
   }
-}
 }
